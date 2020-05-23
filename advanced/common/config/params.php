@@ -5,4 +5,9 @@ return [
     'senderEmail' => 'noreply@oroodcom.com',
     'senderName' => 'Example.com mailer',
     'user.passwordResetTokenExpire' => 3600,
+
+    "languages" => [
+        'en-US' => "English",
+        'ar' => "Arabic",
+    ],
 ];

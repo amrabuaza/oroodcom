@@ -4,6 +4,8 @@ namespace frontend\models;
 
 use backend\models\Category;
 use backend\models\Shop;
+use backend\models\translations\ItemLanguage;
+use omgdef\multilingual\MultilingualBehavior;
 use Yii;
 
 /**
@@ -44,6 +46,26 @@ class Item extends \yii\db\ActiveRecord
             [['upload_image'], 'file', 'extensions' => 'png, jpg', 'skipOnEmpty' => true],
             [['id'], 'unique'],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            'ml' => [
+                'class' => MultilingualBehavior::className(),
+                'languages' => Yii::$app->params["languages"],
+                'languageField' => 'language',
+                'dynamicLangClass' => true,
+                'langClassName' => ItemLanguage::className(), // or namespace/for/a/class/PostLang
+                'defaultLanguage' => 'en-US',
+                'langForeignKey' => 'item_id',
+                'tableName' => "{{%item_language}}",
+                'attributes' => [
+                    'name',
+                    'description'
+                ]
+            ],
         ];
     }
 

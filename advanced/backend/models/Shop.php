@@ -2,6 +2,8 @@
 
 namespace backend\models;
 
+use backend\models\translations\ShopLanguage;
+use omgdef\multilingual\MultilingualBehavior;
 use Yii;
 
 /**
@@ -74,6 +76,26 @@ class Shop extends \yii\db\ActiveRecord
             [['upload_image'],'safe'],
             [['name', 'description', 'latitude', 'longitude', 'open_at', 'close_at', 'picture'], 'string', 'max' => 255],
             [['owner_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['owner_id' => 'id']],
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            'ml' => [
+                'class' => MultilingualBehavior::className(),
+                'languages' => Yii::$app->params["languages"],
+                'languageField' => 'language',
+                'dynamicLangClass' => true,
+                'langClassName' => ShopLanguage::className(), // or namespace/for/a/class/PostLang
+                'defaultLanguage' => 'en-US',
+                'langForeignKey' => 'shop_id',
+                'tableName' => "{{%shop_language}}",
+                'attributes' => [
+                    'name',
+                    'description'
+                ]
+            ],
         ];
     }
 

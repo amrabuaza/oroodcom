@@ -9,6 +9,7 @@ use Yii;
  *
  * @property int $id
  * @property string $name
+ * @property string $name_ar
  * @property string $status
  * @property int $user_id
  *
@@ -30,10 +31,10 @@ class PendingDefaultCategoryName extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name',], 'required'],
+            [['name',"name_ar"], 'required'],
             [['status'], 'string'],
             [['user_id'], 'integer'],
-            [['name'], 'string', 'max' => 255],
+            [['name','name_ar'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
@@ -45,7 +46,8 @@ class PendingDefaultCategoryName extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Name in English',
+            'name_ar' => 'Name in Arabic',
             'status' => 'Status',
             'user_id' => 'User ID',
         ];

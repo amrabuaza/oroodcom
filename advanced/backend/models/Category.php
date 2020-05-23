@@ -2,6 +2,8 @@
 
 namespace backend\models;
 
+use backend\models\translations\CategoryLanguage;
+use omgdef\multilingual\MultilingualBehavior;
 use Yii;
 
 /**
@@ -9,10 +11,12 @@ use Yii;
  *
  * @property int $id
  * @property string $name
+ * @property string $name_ar
  * @property int $shop_id
  *
  * @property Shop $shop
  * @property Item[] $items
+ * @property CategoryLanguage[] $categoryLanguages
  */
 class Category extends \yii\db\ActiveRecord
 {
@@ -33,11 +37,30 @@ class Category extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [[ 'name', 'shop_id'], 'required'],
+            [['name', 'shop_id'], 'required'],
             [['id', 'shop_id'], 'integer'],
             [['name'], 'string', 'max' => 255],
             [['id'], 'unique'],
             [['shop_id'], 'exist', 'skipOnError' => true, 'targetClass' => Shop::className(), 'targetAttribute' => ['shop_id' => 'id']],
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            'ml' => [
+                'class' => MultilingualBehavior::className(),
+                'languages' => Yii::$app->params["languages"],
+                'languageField' => 'language',
+                'dynamicLangClass' => true,
+                'langClassName' => CategoryLanguage::className(), // or namespace/for/a/class/PostLang
+                'defaultLanguage' => 'en-US',
+                'langForeignKey' => 'category_id',
+                'tableName' => "{{%category_language}}",
+                'attributes' => [
+                    'name',
+                ]
+            ],
         ];
     }
 
@@ -69,5 +92,15 @@ class Category extends \yii\db\ActiveRecord
         return $this->hasMany(Item::className(), ['category_id' => 'id']);
     }
 
+
+    /**
+     * Gets query for [[CategoryLanguages]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCategoryLanguages()
+    {
+        return $this->hasMany(CategoryLanguage::className(), ['category_id' => 'id']);
+    }
 
 }
