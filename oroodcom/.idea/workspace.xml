@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e84ea23d-ecdd-4108-9532-16dfba6984b5" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/advanced/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/advanced/vendor/bower-asset/jquery" />
+      <path value="$PROJECT_DIR$/advanced/vendor/bower-asset/inputmask" />
+      <path value="$PROJECT_DIR$/advanced/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/advanced/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/advanced/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/advanced/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/advanced/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/advanced/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/advanced/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/advanced/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/advanced/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/advanced/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/advanced/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/advanced/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/advanced/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/advanced/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/advanced/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/advanced/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/advanced/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/advanced/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/advanced/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/advanced/vendor/opis/closure" />
+      <path value="$PROJECT_DIR$/advanced/vendor/composer" />
+      <path value="$PROJECT_DIR$/advanced/vendor/codeception/phpunit-wrapper" />
+      <path value="$PROJECT_DIR$/advanced/vendor/codeception/stub" />
+      <path value="$PROJECT_DIR$/advanced/vendor/codeception/verify" />
+      <path value="$PROJECT_DIR$/advanced/vendor/yiisoft/yii2" />
+      <path value="$PROJECT_DIR$/advanced/vendor/codeception/base" />
+      <path value="$PROJECT_DIR$/advanced/vendor/yiisoft/yii2-bootstrap" />
+      <path value="$PROJECT_DIR$/advanced/vendor/yiisoft/yii2-faker" />
+      <path value="$PROJECT_DIR$/advanced/vendor/yiisoft/yii2-composer" />
+      <path value="$PROJECT_DIR$/advanced/vendor/yiisoft/yii2-debug" />
+      <path value="$PROJECT_DIR$/advanced/vendor/yiisoft/yii2-gii" />
+      <path value="$PROJECT_DIR$/advanced/vendor/yiisoft/yii2-swiftmailer" />
+      <path value="$PROJECT_DIR$/advanced/vendor/behat/gherkin" />
+      <path value="$PROJECT_DIR$/advanced/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/advanced/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/advanced/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/advanced/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/advanced/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/advanced/vendor/symfony/polyfill-iconv" />
+      <path value="$PROJECT_DIR$/advanced/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/advanced/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/advanced/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/advanced/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/advanced/vendor/symfony/browser-kit" />
+      <path value="$PROJECT_DIR$/advanced/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/advanced/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/advanced/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/advanced/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/advanced/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/advanced/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/advanced/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/advanced/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/advanced/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/advanced/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/advanced/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/advanced/vendor/phpspec/php-diff" />
+      <path value="$PROJECT_DIR$/advanced/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/advanced/vendor/cebe/markdown" />
+      <path value="$PROJECT_DIR$/advanced/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/advanced/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/advanced/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/advanced/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/advanced/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/advanced/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/advanced/vendor/phpunit/phpunit-mock-objects" />
+      <path value="$PROJECT_DIR$/advanced/vendor/ezyang/htmlpurifier" />
+      <path value="$PROJECT_DIR$/advanced/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/advanced/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/advanced/vendor/bower-asset/punycode" />
+      <path value="$PROJECT_DIR$/advanced/vendor/bower-asset/yii2-pjax" />
+      <path value="$PROJECT_DIR$/advanced/vendor/bower-asset/bootstrap" />
+      <path value="$PROJECT_DIR$/advanced/vendor/msvdev/yii2-widget-mappicker" />
+      <path value="$PROJECT_DIR$/advanced/vendor/select2/select2" />
+      <path value="$PROJECT_DIR$/advanced/vendor/kartik-v/yii2-widget-select2" />
+      <path value="$PROJECT_DIR$/advanced/vendor/kartik-v/yii2-krajee-base" />
+      <path value="$PROJECT_DIR$/advanced/vendor/kartik-v/yii2-grid" />
+      <path value="$PROJECT_DIR$/advanced/vendor/kartik-v/yii2-dialog" />
+      <path value="$PROJECT_DIR$/advanced/vendor/kartik-v/yii2-widget-fileinput" />
+      <path value="$PROJECT_DIR$/advanced/vendor/kartik-v/bootstrap-fileinput" />
+      <path value="$PROJECT_DIR$/advanced/vendor/yii2mod/yii2-star-rating" />
+      <path value="$PROJECT_DIR$/advanced/vendor/bower-asset/raty" />
+      <path value="$PROJECT_DIR$/advanced/vendor/bower-asset/jquery-locationpicker-plugin" />
+      <path value="$PROJECT_DIR$/advanced/vendor/pigochu/yii2-jquery-locationpicker" />
+      <path value="$PROJECT_DIR$/advanced/vendor/kartik-v/yii2-bootstrap4-dropdown" />
+      <path value="$PROJECT_DIR$/advanced/vendor/baha2odeh/yii2-dynamicform" />
+      <path value="$PROJECT_DIR$/advanced/vendor/omgdef/yii2-multilingual-behavior" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1TcO79kdadg2W4px5SpYBTnURfG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\oroodcom\advanced\backend\modules\models" />
+      <recent name="C:\xampp\htdocs\oroodcom\advanced\backend\modules\controllers" />
+      <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend\views\category" />
+      <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend\views\shop" />
+      <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend\models" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e84ea23d-ecdd-4108-9532-16dfba6984b5" name="Default Changelist" comment="" />
+      <created>1573309814645</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1573309814645</updated>
+      <workItem from="1573309816376" duration="103000" />
+      <workItem from="1573309964700" duration="974000" />
+      <workItem from="1573311468843" duration="18857000" />
+      <workItem from="1573509290002" duration="16415000" />
+      <workItem from="1573577844350" duration="10094000" />
+      <workItem from="1573696547909" duration="4213000" />
+      <workItem from="1573755754184" duration="10000" />
+      <workItem from="1573755766995" duration="2279000" />
+      <workItem from="1574187007658" duration="3172000" />
+      <workItem from="1574192187191" duration="170000" />
+      <workItem from="1574192363010" duration="158000" />
+      <workItem from="1574192522060" duration="6145000" />
+      <workItem from="1574672820875" duration="13030000" />
+      <workItem from="1574706018553" duration="241000" />
+      <workItem from="1575014928422" duration="3489000" />
+      <workItem from="1575034104311" duration="3474000" />
+      <workItem from="1575138887503" duration="4913000" />
+      <workItem from="1575322460747" duration="3469000" />
+      <workItem from="1575484137602" duration="3099000" />
+      <workItem from="1577526624548" duration="779000" />
+      <workItem from="1577528580886" duration="1364000" />
+      <workItem from="1577531921577" duration="1786000" />
+      <workItem from="1577533743226" duration="1797000" />
+      <workItem from="1577535566512" duration="1701000" />
+      <workItem from="1578245465080" duration="6180000" />
+      <workItem from="1578345799551" duration="151000" />
+      <workItem from="1578428327083" duration="4934000" />
+      <workItem from="1578662816888" duration="10849000" />
+      <workItem from="1579345759863" duration="6417000" />
+      <workItem from="1579364502105" duration="700000" />
+      <workItem from="1579416201587" duration="428000" />
+      <workItem from="1583687901349" duration="13325000" />
+      <workItem from="1583746432890" duration="630000" />
+      <workItem from="1583781706972" duration="106000" />
+      <workItem from="1583785619857" duration="996000" />
+      <workItem from="1584624432423" duration="613000" />
+      <workItem from="1584626499494" duration="2337000" />
+      <workItem from="1584798758314" duration="1931000" />
+      <workItem from="1584894922985" duration="1548000" />
+      <workItem from="1585061359190" duration="638000" />
+      <workItem from="1585528704804" duration="629000" />
+      <workItem from="1586206561899" duration="810000" />
+      <workItem from="1586288025133" duration="28000" />
+      <workItem from="1586288068537" duration="608000" />
+      <workItem from="1586292335502" duration="606000" />
+      <workItem from="1586298500372" duration="243000" />
+      <workItem from="1586298771385" duration="601000" />
+      <workItem from="1586890659366" duration="627000" />
+      <workItem from="1587759367206" duration="636000" />
+      <workItem from="1589242401517" duration="1362000" />
+      <workItem from="1589248601217" duration="725000" />
+      <workItem from="1590255926774" duration="1523000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2106" y="261" key="FileChooserDialogImpl" timestamp="1590257372085">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2106" y="261" key="FileChooserDialogImpl/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590257372085" />
+    <state x="2038" y="418" width="410" height="204" key="Github.ShareDialog" timestamp="1590257328621">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2038" y="418" width="410" height="204" key="Github.ShareDialog/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590257328621" />
+    <state x="2160" y="443" key="NewPhpFileDialog" timestamp="1590257077307">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2160" y="443" key="NewPhpFileDialog/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590257077307" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/advanced/frontend/views/category/_form.php</url>
+          <line>114</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/advanced/frontend/views/site/login.php</url>
+          <line>32</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/advanced/frontend/views/shop/info.php</url>
+          <line>2</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

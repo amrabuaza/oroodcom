@@ -1,0 +1,205 @@
+html,
+body {
+    background : url("../images/loginPage.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: black;
+}
+/*
+    login page
+*/
+.site-login
+{
+    height: 100%;
+}
+.body_login
+{
+    background-color: black;
+}
+
+.login-bt
+{
+    position: relative;
+    left: 250px;
+    top: -30px;
+}
+.Signup-button
+{
+    position: relative;
+    left: 250px;
+    top: 30px;
+}
+.panel_login
+{
+    width: 350px;
+    border: none;
+    height: 670px;
+}
+.panel-body a{
+    color: white;
+}
+
+.brand_name {
+    padding: 0 0 6px 4px;
+    display: inline-block;
+    overflow: hidden;
+    font-family: 'Yesteryear', cursive;
+    font-size: 40px;
+    line-height: 64px;
+    color: #ffffff;
+}
+
+.brand_name a{
+    color: white;
+    margin-left: 80px;
+
+}
+
+.brand_name a:hover{
+    color: #2aabd2;
+    text-decoration: none;
+}
+
+.brand_name hr
+{
+    margin-left: 50px;
+    width: 200px;
+}
+.welcome_mes
+{
+    margin-left: 80px;
+    color: white;
+}
+
+.site-login , .site-signup
+{
+
+}
+/* ///////////////////////////////////////////////////////////////  */
+/*
+    Sign UP
+*/
+.sinup_mes
+{
+    margin-left: 100px;
+    color: white;
+}
+.signup-bt
+{
+    margin-top: 20px;
+}
+/*
+    //////////////////////////////////////////////////////////////
+    site-contact
+*/
+.site-contact label
+{
+    color: white;
+}
+/*
+
+*/
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: /*"\e113"*/ "\e151";
+}
+
+a.desc:after {
+    content: /*"\e114"*/ "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view td {
+    white-space: nowrap;
+}
+
+.grid-view .filters input,
+.grid-view .filters select {
+    min-width: 50px;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+/* align the logout "link" (button in form) of the navbar */
+.nav li > form > button.logout {
+    padding: 15px;
+    border: none;
+}
+
+@media(max-width:767px) {
+    .nav li > form > button.logout {
+        display:block;
+        text-align: left;
+        width: 100%;
+        padding: 10px 15px;
+    }
+}
+
+.nav > li > form > button.logout:focus,
+.nav > li > form > button.logout:hover {
+    text-decoration: none;
+}
+
+.nav > li > form > button.logout:focus {
+    outline: none;
+}
+
+
+/*
+    home
+*/
+
+

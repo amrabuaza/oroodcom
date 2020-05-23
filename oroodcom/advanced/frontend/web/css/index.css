@@ -1,0 +1,632 @@
+html,
+body {
+    height: 100%;
+}
+
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
+    padding: 70px 15px 20px;
+}
+
+.footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: "\e151";
+}
+
+a.desc:after {
+    content: "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view td {
+    white-space: nowrap;
+}
+
+.grid-view .filters input,
+.grid-view .filters select {
+    min-width: 50px;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+/* align the logout "link" (button in form) of the navbar */
+.nav li > form > button.logout {
+    padding: 15px;
+    border: none;
+}
+
+@media(max-width:767px) {
+    .nav li > form > button.logout {
+        display:block;
+        text-align: left;
+        width: 100%;
+        padding: 10px 15px;
+    }
+}
+
+.nav > li > form > button.logout:focus,
+.nav > li > form > button.logout:hover {
+    text-decoration: none;
+}
+
+.nav > li > form > button.logout:focus {
+    outline: none;
+}
+/*
+ shop home
+ */
+.shop-panel
+{
+    border-radius: 0;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.2);
+}
+#myCarousel
+{
+    margin-bottom: 0px;
+}
+.logout
+{
+    color: black;
+}
+.thead-dark
+{
+    background-color: #E4EDDB;
+}
+
+ul.list-group{
+    margin-right: 0;
+}
+
+.list-group li
+{
+    display: block;
+    margin-top:2px;
+}
+.list-group li a
+{
+    text-align: center;
+    display: block;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+div#spaceup {
+    display: block;
+    margin-top: 10px;
+}
+
+div.card-bodyhome {
+    border: 1px solid #ccc;
+    box-shadow: 2px 4px 10px #0d3349;
+    height: 180px;
+    /*overflow: scroll;*/
+}
+
+.pl
+{
+    width: 15px;
+    height: 15px;
+}
+
+.item-pic
+{
+    width: 100%;
+    height: 70%;
+}
+
+@media(max-height: 600px){
+    div.card-bodyhome{
+        border: 1px solid #ccc;
+        box-shadow: 2px 4px 10px #0d3349;
+        height: 130px;
+        margin-bottom: 10px;
+    }
+}
+
+.login-bt
+{
+    color:black;
+    background-color: white;
+}
+.login-bt :hover
+{
+    text-decoration: none;
+}
+
+/*
+    item image
+*/
+.upload-image
+{
+    width: 212px;
+    height: 161px;
+}
+
+
+@media only screen and (min-width : 500px) {
+    .flex-row.row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .flex-row.row > [class*='col-'] {
+        display: flex;
+        flex-direction: column;
+    }
+    .flex-row.row:after,
+    .flex-row.row:before {
+        display: flex;
+    }
+    .flex-row.row > [class*='col-'] > .box {
+        display: flex;
+        flex: 1;
+    }
+}
+
+/* Grow thumbnails to fill columns height */
+.flex-row .thumb,
+.flex-row .caption {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+}
+
+/* Flex Grow Text Container */
+.flex-row .caption p.flex-text {
+    flex-grow: 1;
+}
+
+/* Flex Responsive Image */
+.flex-row img {
+    width: 100%;
+    height: auto;
+}
+
+.thumb{
+    padding-bottom: 10px;
+}
+
+.caption{
+
+}
+/* EXAMPLE 2 - CSS TABLES EQUAL HEIGHT
+   - ie9 support
+   - not responsive (mobile fallback)
+*/
+
+.table-row.row,
+.table-row-equal {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+.table-row.row [class*="col-"] {
+    width: 25%;
+}
+.table-row.row [class*="col-"],
+.table-row-equal .thumb {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+}
+.table-row-equal {
+    border-spacing: 30px 0px;
+}
+.table-row-equal .thumb {
+    width: 1%;
+}
+/* mobile fallback to support partial responsiveness */
+@media only screen and (max-width: 500px) {
+    .table-row-equal .thumb {
+        display: block;
+        width: 100%;
+    }
+}
+
+/* MASONARY BOOTSTRAP 3 GRID
+   - Who needs V4?
+*/
+.masonary-row.row {
+    -webkit-column-gap: 30px;
+    column-gap: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    word-wrap: break-word;
+    -webkit-column-fill: balance;
+    column-fill: balance;
+}
+.masonary-row [class*="col-"] {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    float: none;
+    padding: 0px;
+    -webkit-column-fill: balance;
+    column-fill: balance;
+}
+
+@media (min-width: 480px) {
+    .masonary-row.row {
+        -webkit-column-count: 2;
+        column-count: 2;
+    }
+}
+@media (min-width: 768px) {
+    .masonary-row.row {
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+}
+/* demo */
+.bootflex .well {
+    flex-grow: 1;
+}
+
+/* pre hack for small devices */
+pre {
+    display: flex;
+    flex: 1;
+}
+.flex-row.flex-code.row > [class*='col-'] .flex-text {
+    flex-grow: 1;
+    display: flex;
+}
+.overview {
+    display: flex;
+    padding-right: 10px;
+}
+
+.card-default {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-default>* {
+    width: 100%;
+}
+
+.excludingImage {
+    align-self: flex-end;
+    text-align: center;
+}
+
+/* End Added */
+
+.card {
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 6px;
+
+}
+
+.card>.card-link {
+    color: #333;
+}
+
+.card>.card-link:hover {
+    text-decoration: none;
+}
+
+.card>.card-link .card-img img {
+    border-radius: 6px 6px 0 0;
+}
+.card .card-body {
+    /* display: table;
+    width: 100%; */
+    padding: 12px;
+}
+
+.card .card-header {
+    border-radius: 6px 6px 0 0;
+    padding: 8px;
+}
+.card .card-footer {
+    border-radius: 0 0 6px 6px;
+    padding: 8px;
+}
+
+.item-pic
+{
+    width:  100%;
+    height: 200px;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+.modal-header {
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #337ab7;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.shop-link{
+    color:blue;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
+    padding: 70px 15px 20px;
+}
+
+.footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: "\e151";
+}
+
+a.desc:after {
+    content: "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view td {
+    white-space: nowrap;
+}
+
+.grid-view .filters input,
+.grid-view .filters select {
+    min-width: 50px;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+/* align the logout "link" (button in form) of the navbar */
+.nav li > form > button.logout {
+    padding: 15px;
+    border: none;
+}
+
+@media(max-width:767px) {
+    .nav li > form > button.logout {
+        display:block;
+        text-align: left;
+        width: 100%;
+        padding: 10px 15px;
+    }
+}
+
+.nav > li > form > button.logout:focus,
+.nav > li > form > button.logout:hover {
+    text-decoration: none;
+}
+
+.nav > li > form > button.logout:focus {
+    outline: none;
+}
+/*
+ shop home
+ */
+.shop-panel
+{
+    border-radius: 0;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.2);
+}
+#myCarousel
+{
+    margin-bottom: 0px;
+}
+.logout
+{
+    color: black;
+}
+.thead-dark
+{
+    background-color: #E4EDDB;
+}
+
+ul.list-group{
+    margin-right: 0;
+}
+
+.list-group li
+{
+    display: block;
+    margin-top:2px;
+}
+.list-group li a
+{
+    text-align: center;
+    display: block;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+div#spaceup {
+    display: block;
+    margin-top: 10px;
+}
+
+div.card-bodyhome {
+    border: 1px solid #ccc;
+    box-shadow: 2px 4px 10px #0d3349;
+    height: 180px;
+    /*overflow: scroll;*/
+}
+
+.pl
+{
+    width: 15px;
+    height: 15px;
+}
+
+.restaurantBG
+{
+    width: 100%;
+    height: 70%;
+}
+
+@media(max-height: 600px){
+    div.card-bodyhome{
+        border: 1px solid #ccc;
+        box-shadow: 2px 4px 10px #0d3349;
+        height: 130px;
+        margin-bottom: 10px;
+    }
+}
+
+.login-bt
+{
+    color:black;
+    background-color: white;
+}
+.login-bt :hover
+{
+    text-decoration: none;
+}
+
+/*
+    item image
+*/
+.upload-image
+{
+    width: 212px;
+    height: 161px;
+}
+
+
+
+
+.product__price1{
+
+}
+
