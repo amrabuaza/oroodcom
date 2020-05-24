@@ -2,9 +2,11 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/advanced/vendor/airani/yii2-bootstrap-rtl" />
       <excludeFolder url="file://$MODULE_DIR$/advanced/vendor/baha2odeh/yii2-dynamicform" />
       <excludeFolder url="file://$MODULE_DIR$/advanced/vendor/behat/gherkin" />
       <excludeFolder url="file://$MODULE_DIR$/advanced/vendor/bower-asset/bootstrap" />
+      <excludeFolder url="file://$MODULE_DIR$/advanced/vendor/bower-asset/bootstrap-rtl" />
       <excludeFolder url="file://$MODULE_DIR$/advanced/vendor/bower-asset/inputmask" />
       <excludeFolder url="file://$MODULE_DIR$/advanced/vendor/bower-asset/jquery" />
       <excludeFolder url="file://$MODULE_DIR$/advanced/vendor/bower-asset/jquery-locationpicker-plugin" />

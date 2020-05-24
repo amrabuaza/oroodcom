@@ -115,6 +115,8 @@
       <path value="$PROJECT_DIR$/advanced/vendor/baha2odeh/yii2-dynamicform" />
       <path value="$PROJECT_DIR$/advanced/vendor/omgdef/yii2-multilingual-behavior" />
       <path value="$PROJECT_DIR$/advanced/vendor/kartik-v/yii2-widget-timepicker" />
+      <path value="$PROJECT_DIR$/advanced/vendor/bower-asset/bootstrap-rtl" />
+      <path value="$PROJECT_DIR$/advanced/vendor/airani/yii2-bootstrap-rtl" />
     </include_path>
   </component>
   <component name="ProjectId" id="1TcO79kdadg2W4px5SpYBTnURfG" />
@@ -126,7 +128,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../halime-sultan" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/advanced/frontend/views/item" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -140,14 +142,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\oroodcom\advanced\common" />
+      <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend\web\uploads\shops\2019-12" />
+      <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend\web\uploads\shops" />
+      <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend\web\uploads\items\2019-12" />
+      <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend\web\uploads\items" />
+      <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend\web\uploads" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend\views\item" />
       <recent name="C:\xampp\htdocs\oroodcom\advanced\backend\modules\models" />
       <recent name="C:\xampp\htdocs\oroodcom\advanced\backend\modules\controllers" />
       <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend\views\category" />
       <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend\views\shop" />
-      <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend\models" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -213,7 +219,7 @@
       <workItem from="1589248601217" duration="725000" />
       <workItem from="1590255926774" duration="1523000" />
       <workItem from="1590258129314" duration="8821000" />
-      <workItem from="1590276225323" duration="8636000" />
+      <workItem from="1590276225323" duration="18653000" />
     </task>
     <servers />
   </component>
@@ -221,18 +227,22 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2056" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1590337178222">
+    <state x="1863" y="54" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590349547375">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="2056" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590337178222" />
+    <state x="1863" y="54" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590349547375" />
+    <state x="2056" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1590345970183">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2056" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590345970183" />
     <state x="2102" y="432" key="ComposerInitDialogKey" timestamp="1590278199303">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="2102" y="432" key="ComposerInitDialogKey/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590278199303" />
-    <state x="2106" y="261" key="FileChooserDialogImpl" timestamp="1590276306905">
+    <state x="2106" y="261" key="FileChooserDialogImpl" timestamp="1590342551309">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="2106" y="261" key="FileChooserDialogImpl/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590276306905" />
+    <state x="2106" y="261" key="FileChooserDialogImpl/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590342551309" />
     <state x="2038" y="418" width="410" height="204" key="Github.ShareDialog" timestamp="1590257328621">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
@@ -245,6 +255,10 @@
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="1982" y="240" key="run.anything.popup/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590337941809" />
+    <state x="1989" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1590339696413">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1989" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590339696413" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

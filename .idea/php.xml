@@ -91,6 +91,8 @@
       <path value="$PROJECT_DIR$/advanced/vendor/baha2odeh/yii2-dynamicform" />
       <path value="$PROJECT_DIR$/advanced/vendor/omgdef/yii2-multilingual-behavior" />
       <path value="$PROJECT_DIR$/advanced/vendor/kartik-v/yii2-widget-timepicker" />
+      <path value="$PROJECT_DIR$/advanced/vendor/bower-asset/bootstrap-rtl" />
+      <path value="$PROJECT_DIR$/advanced/vendor/airani/yii2-bootstrap-rtl" />
     </include_path>
   </component>
   <component name="PhpUnit">
