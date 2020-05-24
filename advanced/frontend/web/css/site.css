@@ -3,6 +3,14 @@ body {
     height: 100%;
 }
 
+input[type=text] {
+    width: 30%;
+}
+
+.flex {
+    display: flex;
+}
+
 .wrap {
     min-height: 100%;
     height: auto;
@@ -101,9 +109,9 @@ a.desc:after {
     border: none;
 }
 
-@media(max-width:767px) {
+@media (max-width: 767px) {
     .nav li > form > button.logout {
-        display:block;
+        display: block;
         text-align: left;
         width: 100%;
         padding: 10px 15px;
@@ -118,38 +126,37 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
 /*
  shop home
  */
-.shop-panel
-{
+.shop-panel {
     border-radius: 0;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
 }
-#myCarousel
-{
+
+#myCarousel {
     margin-bottom: 0px;
 }
-.logout
-{
+
+.logout {
     color: black;
 }
-.thead-dark
-{
+
+.thead-dark {
     background-color: #E4EDDB;
 }
 
-ul.list-group{
+ul.list-group {
     margin-right: 0;
 }
 
-.list-group li
-{
+.list-group li {
     display: block;
-    margin-top:2px;
+    margin-top: 2px;
 }
-.list-group li a
-{
+
+.list-group li a {
     text-align: center;
     display: block;
     font-size: 0.8em;
@@ -167,20 +174,18 @@ div.card-bodyhome {
     height: 180px;
 }
 
-.pl
-{
+.pl {
     width: 15px;
     height: 15px;
 }
 
-.shopCardPic
-{
+.shopCardPic {
     width: 100%;
     height: 70%;
 }
 
-@media(max-height: 600px){
-    div.card-bodyhome{
+@media (max-height: 600px) {
+    div.card-bodyhome {
         border: 1px solid #ccc;
         box-shadow: 2px 4px 10px #0d3349;
         height: 110px;
@@ -188,29 +193,44 @@ div.card-bodyhome {
     }
 }
 
-.login-bt
-{
-    color:black;
+.login-bt {
+    color: black;
     background-color: white;
 }
-.login-bt :hover
-{
+
+.login-bt :hover {
     text-decoration: none;
 }
 
 /*
     item image
 */
-.upload-image
-{
+.upload-image {
     width: 212px;
     height: 161px;
 }
 
-.shop-pic{
+.shop-pic {
     width: 300px;
 }
 
+.shop-time {
+    padding-bottom: 24px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
 
+.input-group-addon {
+    border-top-right-radius: 8px !important;;
+    border-bottom-right-radius: 8px !important;;
+    border-top-left-radius: 0 !important;;
+    border-bottom-left-radius: 0 !important;;
+}
 
+.full-width{
+    width: 100%;
+}
 
+.text-center{
+    text-align: center;
+}

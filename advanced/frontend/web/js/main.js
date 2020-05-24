@@ -1,11 +1,11 @@
 $(function () {
-    $("#serachitem-latitude").val( "test");
+    $("#serachitem-latitude").val("test");
     $('.pass-in').hide();
     $('.password-click').click(function () {
         $('.pass-in').toggle(500);
     });
 
-    $('.logout').click(function () {
+    $('.logout-btn').click(function () {
         $.post('/oroodcom/advanced/frontend/web/site/logout');
     });
     $('.forgot-pass').click(function (event) {
@@ -30,6 +30,15 @@ $(function () {
         $("#myModal").modal('show')
             .find("#myModalContent")
             .load($(this).attr('value'));
+    });
+
+    $(".lang-item").click(function () {
+        $.post(
+            '/oroodcom/advanced/frontend/web/site/change-language', {},
+            function (data) {
+                location.reload();
+            }
+        );
     });
 
 });

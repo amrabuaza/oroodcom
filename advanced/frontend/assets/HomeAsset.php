@@ -16,7 +16,7 @@ class HomeAsset extends AssetBundle
         'css/ss.css',
     ];
     public $js = [
-        'js/myCode.js',
+        'js/main.js',
         'js/jquery-ui.js'
     ];
     public $depends = [

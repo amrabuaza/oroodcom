@@ -3,6 +3,9 @@
 namespace frontend\controllers;
 
 use backend\models\Shop;
+use backend\models\translations\ShopLanguage;
+use common\helper\Constants;
+use common\helper\HelperMethods;
 use frontend\models\ShopSearch;
 use Yii;
 use yii\filters\AccessControl;
@@ -37,6 +40,22 @@ class ShopController extends Controller
                 ],
             ],
         ];
+    }
+
+    public function beforeAction($action)
+    {
+        if (!parent::beforeAction($action))
+            return false;
+
+        $language = HelperMethods::getLanguageFromSessionOrSetIfNotExists();
+        Yii::$app->language = $language;
+        Yii::$app->sourceLanguage = $language;
+
+        if ($language == Constants::ARABIC_LANGUAGE) {
+            $this->layout = "main-ar";
+        }
+
+        return true;
     }
 
     /**
@@ -101,7 +120,7 @@ class ShopController extends Controller
         $latitude = 32.551445;
         $model = new Shop();
 
-        if ($model->load(Yii::$app->request->post()) ) {
+        if ($model->load(Yii::$app->request->post())) {
 
             $image = UploadedFile::getInstanceByName("Shop[upload_image]");
             if ($image != null) {
@@ -109,14 +128,14 @@ class ShopController extends Controller
                 $model->picture = $modelName . $image->baseName . '.' . $image->extension;
             }
 
-            if($model->save()){
+            if ($model->save()) {
                 if ($image != null) {
                     $image->saveAs('uploads/' . $model->picture);
                 }
                 return $this->redirect(['view', 'id' => $model->id]);
             }
 
-        } 
+        }
 
         return $this->render('create', [
             'model' => $model,
@@ -134,6 +153,7 @@ class ShopController extends Controller
      */
     public function actionUpdate($id)
     {
+        Yii::$app->language = Constants::DEFAULT_LANGUAGE;
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
@@ -144,14 +164,34 @@ class ShopController extends Controller
                 $model->picture = $modelName . $image->baseName . '.' . $image->extension;
             }
 
-
-            if($model->save()){
+            if ($model->save()) {
                 if ($image != null) {
                     $image->saveAs('uploads/' . $model->picture);
                 }
+                if ($model->shopLanguage == null) {
+                    $shopLanguage = new ShopLanguage();
+                    $shopLanguage->shop_id = $model->id;
+                    $shopLanguage->language = Constants::ARABIC_LANGUAGE;
+                    $shopLanguage->name = $model->name_ar;
+                    $shopLanguage->description = $model->description_ar;
+                    $shopLanguage->save();
+                } else {
+                    $model->shopLanguage->name = $model->name_ar;
+                    $model->shopLanguage->description = $model->description_ar;
+                    $model->shopLanguage->save();
+                }
+
                 return $this->redirect(['view', 'id' => $model->id]);
             }
 
+        }
+
+        Yii::$app->language = HelperMethods::getLanguageFromSessionOrSetIfNotExists();
+        if ($model->shopLanguage != null) {
+            $model->name_ar = $model->shopLanguage->name;
+            $model->description_ar = $model->shopLanguage->description;
+        } else {
+            $model->name_ar = $model->description_ar = "";
         }
 
         return $this->render('update', [

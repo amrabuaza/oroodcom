@@ -3,6 +3,8 @@
 namespace frontend\controllers;
 
 use backend\models\User;
+use common\helper\Constants;
+use common\helper\HelperMethods;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -30,6 +32,22 @@ class UserController extends Controller
                 ],
             ],
         ];
+    }
+
+    public function beforeAction($action)
+    {
+        if (!parent::beforeAction($action))
+            return false;
+
+        $language = HelperMethods::getLanguageFromSessionOrSetIfNotExists();
+        Yii::$app->language = $language;
+        Yii::$app->sourceLanguage = $language;
+
+        if ($language == Constants::ARABIC_LANGUAGE) {
+            $this->layout = "main-ar";
+        }
+
+        return true;
     }
 
 

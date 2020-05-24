@@ -3,6 +3,8 @@
 namespace frontend\controllers;
 
 use backend\models\Category;
+use common\helper\Constants;
+use common\helper\HelperMethods;
 use frontend\models\Item;
 use common\models\LoginForm;
 use frontend\models\ContactForm;
@@ -52,6 +54,7 @@ class SiteController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
+                    'change-language' => ['post'],
                 ],
             ],
         ];
@@ -73,18 +76,56 @@ class SiteController extends Controller
         ];
     }
 
-    public function actionCategoryItems($name){
-        $catregoires = Category::find()->where(['like','name', $name])->all();
+    public function beforeAction($action)
+    {
+        if (!parent::beforeAction($action))
+            return false;
 
-        $query  = Item::find();
-        foreach ($catregoires as $obj){
-            $query ->orWhere(["category_id"=> $obj->id]);
+        $language = HelperMethods::getLanguageFromSessionOrSetIfNotExists();
+        Yii::$app->language = $language;
+        Yii::$app->sourceLanguage = $language;
+
+        if ($language == Constants::ARABIC_LANGUAGE) {
+            $this->layout = "main-ar";
+        }
+
+        return true;
+    }
+
+    public function actionChangeLanguage()
+    {
+        if (Yii::$app->language == Constants::DEFAULT_LANGUAGE) {
+            $lang = Constants::ARABIC_LANGUAGE;
+        } else {
+            $lang = Constants::DEFAULT_LANGUAGE;
+        }
+        HelperMethods::setLanguageIntoSession($lang);
+    }
+
+    public function actionCategoryItems($id)
+    {
+        Yii::$app->language = Constants::DEFAULT_LANGUAGE;
+        $name = Category::findOne($id)->name;
+        $categories = Category::find()->where(['like', 'name', $name])->all();
+
+
+        $query = Item::find();
+        foreach ($categories as $category) {
+            $query->orWhere(["category_id" => $category->id]);
         }
 
         $query->joinWith("shop");
-        $items = $query->andWhere(["shop.status"=>"active"])->all();
+        $items = $query->andWhere(["shop.status" => "active"])->all();
 
-        $this->layout = "indexLauout";
+        $language = HelperMethods::getLanguageFromSessionOrSetIfNotExists();
+        Yii::$app->language = $language;
+        if ($language == Constants::ARABIC_LANGUAGE) {
+            $this->layout = "home-ar";
+        } else {
+            $this->layout = "home-en";
+        }
+
+
         return $this->render('index', [
             'dataProvider' => $items,
         ]);
@@ -110,7 +151,13 @@ class SiteController extends Controller
             $items = $searchModel->search(Yii::$app->request->queryParams)->models;
 
 
-            $this->layout = "indexLauout";
+            $language = HelperMethods::getLanguageFromSessionOrSetIfNotExists();
+
+            if ($language == Constants::ARABIC_LANGUAGE) {
+                $this->layout = "home-ar";
+            } else {
+                $this->layout = "home-en";
+            }
             return $this->render('index', [
                 'dataProvider' => $items,
             ]);
@@ -129,11 +176,17 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $this->layout = "indexLauout";
+        $language = HelperMethods::getLanguageFromSessionOrSetIfNotExists();
 
-        $query  = Item::find();
+        if ($language == Constants::ARABIC_LANGUAGE) {
+            $this->layout = "home-ar";
+        } else {
+            $this->layout = "home-en";
+        }
 
-        $items = $query->joinWith("shop")->where(["shop.status"=>"active"])->all();
+        $query = Item::find();
+
+        $items = $query->joinWith("shop")->where(["shop.status" => "active"])->all();
 
         return $this->render('index', [
             'dataProvider' => $items,
@@ -147,7 +200,13 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        $this->layout = "loginLayout";
+        $language = HelperMethods::getLanguageFromSessionOrSetIfNotExists();
+
+        if ($language == Constants::ARABIC_LANGUAGE) {
+            $this->layout = "login-ar";
+        } else {
+            $this->layout = "login-en";
+        }
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -214,7 +273,13 @@ class SiteController extends Controller
      */
     public function actionSignup()
     {
-        $this->layout = "loginLayout";
+        $language = HelperMethods::getLanguageFromSessionOrSetIfNotExists();
+
+        if ($language == Constants::ARABIC_LANGUAGE) {
+            $this->layout = "login-ar";
+        } else {
+            $this->layout = "login-en";
+        }
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
             Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
@@ -279,8 +344,8 @@ class SiteController extends Controller
      * Verify email address
      *
      * @param string $token
-     * @throws BadRequestHttpException
      * @return yii\web\Response
+     * @throws BadRequestHttpException
      */
     public function actionVerifyEmail($token)
     {

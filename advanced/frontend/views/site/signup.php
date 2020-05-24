@@ -6,6 +6,7 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use common\helper\Constants;
 
 $this->title = 'Signup';
 $this->params['breadcrumbs'][] = $this->title;
@@ -26,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <hr/>
                                     </h1>
                                 </div>
-                                <h2 class="welcome_mes">WELCOME!</h2>
+                                <h2 class="welcome_mes"><?=Yii::t(Constants::APP, "site.login.welcome")?></h2>
                                 <br/>
                                 <br/>
                                 <br/>
@@ -37,8 +38,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <?= $form->field($model, 'email') ?>
 
                                 <?= $form->field($model, 'password')->passwordInput() ?>
-                                <div class="form-group Signup-button">
-                                    <?= Html::submitButton('Signup', ['class' => 'btn btn-default', 'name' => 'login-button']) ?>
+                                <div class="form-group signup-btn">
+                                    <?= Html::submitButton(Yii::t(Constants::APP, "site.view.sign_up"), ['class' => 'btn btn-default', 'name' => 'login-button']) ?>
                                 </div>
 
                                 <?php ActiveForm::end(); ?>

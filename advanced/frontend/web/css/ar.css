@@ -1,0 +1,47 @@
+body,
+* {
+    direction: rtl !important;
+}
+
+th {
+    text-align: right;
+}
+
+.row [class*="col-"] {
+    float: right;
+}
+
+.login-bt, .signup-btn {
+    left: unset !important;
+    right: 68%;
+}
+
+.brand_name {
+    margin-right: 20%;
+    display: block !important;
+}
+
+#loginform-rememberme {
+    margin-left: 0;
+    margin-right: 20%;
+}
+
+.grid__item {
+    float: right !important;
+}
+
+.product__price {
+    color: black !important;
+}
+
+.input-group-addon {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;;
+    border-top-left-radius: 8px !important;;
+    border-bottom-left-radius: 8px !important;;
+}
+
+.select2-selection__clear {
+    right: unset !important;
+    left: 3rem;
+}

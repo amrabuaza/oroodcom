@@ -1,20 +1,31 @@
 <?php
 
+use common\helper\Constants;
 use kartik\file\FileInput;
-use yii\bootstrap\Dropdown;
+use kartik\time\TimePicker;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Shop */
 /* @var $form yii\widgets\ActiveForm */
+/* @var $longitude string */
+/* @var $latitude string */
 ?>
 
 <div class="shop-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+    <div class="row">
+        <div class="col-lg-6"><?=$form->field($model, 'name')->textInput(['maxlength' => true])?></div>
+        <div class="col-lg-6"><?=$form->field($model, 'name_ar')->textInput(['maxlength' => true])?></div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">    <?=$form->field($model, 'description')->textarea(['maxlength' => true])?></div>
+        <div class="col-lg-6"><?=$form->field($model, 'description_ar')->textarea(['maxlength' => true])?></div>
+    </div>
 
     <?php
     $initialPreview = [];
@@ -24,7 +35,7 @@ use yii\widgets\ActiveForm;
         $initialPreview[] = Html::img($pathImg, ['class' => 'upload-image']);
     } ?>
     <div class="shop-pic">
-        <?= $form->field($model, "upload_image")->label(false)->widget(FileInput::classname(), [
+        <?=$form->field($model, "upload_image")->label(false)->widget(FileInput::classname(), [
             'options' => [
                 'multiple' => false,
                 'accept' => 'image/*',
@@ -35,76 +46,45 @@ use yii\widgets\ActiveForm;
                 'showCaption' => false,
                 'showUpload' => false,
                 'browseClass' => 'btn btn-default btn-sm',
-                'browseLabel' => ' Pick image',
+                'browseLabel' => Yii::t(Constants::APP, "shop.fields.pick_image"),
                 'browseIcon' => '<i class="glyphicon glyphicon-picture"></i>',
                 'removeClass' => 'btn btn-danger btn-sm',
-                'removeLabel' => ' Delete',
+                'removeLabel' => Yii::t(Constants::APP, "buttons.delete"),
                 'removeIcon' => '<i class="fa fa-trash"></i>',
                 'previewSettings' => [
                     'image' => ['width' => '100px', 'height' => 'auto']
                 ],
                 'initialPreview' => $initialPreview,
             ]
-        ])->label("Picture") ?>
+        ])->label(Yii::t(Constants::APP, "shop.fields.picture"))?>
 
     </div>
 
-    <?= $form->field($model, 'address')
+    <?=$form->field($model, 'address')
         ->widget(\msvdev\widgets\mappicker\MapInput::className(),
             [
                 'mapCenter' => [$latitude, $longitude],
                 'mapZoom' => 15,
                 'apiKey' => 'AIzaSyBaSSGZhnqDf3-jB7zJYXGiS5JCjTNL4U0',
-            ])->label(false); ?>
+            ])->label(false);?>
 
-    <?= $form->field($model, 'phone_number')->textInput() ?>
+    <?=$form->field($model, 'phone_number')->textInput()?>
 
-    <?= $form->field($model, 'description')->textarea(['maxlength' => true]) ?>
-
-    <?php if ($model->isNewRecord) { ?>
-    <div class="row">
-        <div class="col-sm-4 form-group">
-            <?= $form->field($model, 'open_at')->dropDownList(
-                ['1' => '1', '2' => '2','3' => '3', '4' => '4'
-                    ,'5' => '5', '6' => '6' ,'7' => '7', '8' => '8'
-                    ,'9' => '9', '10' => '10'
-                    ,'11' => '11', '12' => '12'
-                ]
-            ); ?>
+    <div class="flex">
+        <div class="shop-time">
+            <label class="control-label"><?=Yii::t(Constants::APP, "shop.fields.open_at")?></label>
+            <?=TimePicker::widget(['model' => $model, 'attribute' => 'open_at']);?>
         </div>
-        <div class="col-sm-4 form-group">
-            <?= $form->field($model, 'open_at_pm_am')->dropDownList(
-                ['AM' => 'AM', 'PM' => 'PM']
-            )->label("AM/PM"); ?>
+        <div class="shop-time">
+            <label class="control-label"><?=Yii::t(Constants::APP, "shop.fields.close_at")?></label>
+            <?=TimePicker::widget(['model' => $model, 'attribute' => 'close_at']);?>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-sm-4 form-group">
-            <?= $form->field($model, 'close_at')->dropDownList(
-                ['1' => '1', '2' => '2','3' => '3', '4' => '4'
-                    ,'5' => '5', '6' => '6' ,'7' => '7', '8' => '8'
-                    ,'9' => '9', '10' => '10'
-                    ,'11' => '11', '12' => '12'
-                ]
-            ); ?>
-        </div>
-        <div class="col-sm-4 form-group">
-            <?= $form->field($model, 'close_at_pm_am')->dropDownList(
-                ['AM' => 'AM', 'PM' => 'PM']
-            )->label("AM/PM"); ?>
-        </div>
+    <div class="form-group">
+        <?=Html::submitButton(Yii::t(Constants::APP, "buttons.save"), ['class' => 'btn btn-success'])?>
     </div>
-    <?php  } else { ?>
-        <?= $form->field($model, 'open_at')->textInput() ?>
-        <?= $form->field($model, 'close_at')->textInput() ?>
-    <?php }?>
 
-
-<div class="form-group">
-    <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-</div>
-
-<?php ActiveForm::end(); ?>
+    <?php ActiveForm::end(); ?>
 
 </div>

@@ -1,27 +1,29 @@
 <?php
 
 /* @var $this \yii\web\View */
+
 /* @var $content string */
 
-use common\helper\Constants;
+use frontend\assets\HomeAsset;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
+use common\helper\Constants;
 
-AppAsset::register($this);
+HomeAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?=Yii::$app->language?>">
 <head>
-    <meta charset="<?= Yii::$app->charset ?>">
+    <meta charset="<?=Yii::$app->charset?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title><?=Html::encode($this->title)?></title>
     <?php $this->head() ?>
 </head>
 <body>
@@ -64,22 +66,21 @@ AppAsset::register($this);
     ?>
 
     <div class="container">
-        <?= Breadcrumbs::widget([
+        <?=Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+        ])?>
+        <?=Alert::widget()?>
+        <?=$content?>
     </div>
 </div>
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
+        <p class="pull-left">&copy; <?=Html::encode(Yii::$app->name)?> <?=date('Y')?></p>
 
-        <p class="pull-right"><?= "Powered by <a href='https://www.facebook.com/Qussai.gharaibeh1' target='_blank'>Qusai</a> & <a href='https://www.facebook.com/ammar.o.alkhateeb' target='_blank'>Ammar</a>" ?></p>
+        <p class="pull-right"><?="Powered by <a href='https://www.facebook.com/Qussai.gharaibeh1' target='_blank'>Qusai</a> & <a href='https://www.facebook.com/ammar.o.alkhateeb' target='_blank'>Ammar</a>"?></p>
     </div>
 </footer>
-
 <?php
 if (class_exists('yii\debug\Module')) {
     $this->off(\yii\web\View::EVENT_END_BODY, [\yii\debug\Module::getInstance(), 'renderToolbar']);

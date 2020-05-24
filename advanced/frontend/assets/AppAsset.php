@@ -15,7 +15,7 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
-        'js/myCode.js',
+        'js/main.js',
         'js/jquery-ui.js'
     ];
     public $depends = [
