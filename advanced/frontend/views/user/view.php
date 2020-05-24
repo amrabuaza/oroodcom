@@ -1,5 +1,6 @@
 <?php
 
+use common\helper\Constants;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -15,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update'], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t(Constants::APP,"buttons.update"), ['update'], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?= DetailView::widget([

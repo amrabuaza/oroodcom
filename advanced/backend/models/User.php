@@ -2,6 +2,7 @@
 
 namespace backend\models;
 
+use common\helper\Constants;
 use Yii;
 
 /**
@@ -26,6 +27,7 @@ class User extends \yii\db\ActiveRecord
     const STATUS_DELETED = 9;
     const STATUS_ACTIVE = 10;
     public $password;
+
     /**
      * {@inheritdoc}
      */
@@ -37,21 +39,19 @@ class User extends \yii\db\ActiveRecord
 
     public function beforeSave($insert)
     {
-        if(parent::beforeSave($insert))
-        {
-            if(!$this->isNewRecord)
-            {
+        if (parent::beforeSave($insert)) {
+            if (!$this->isNewRecord) {
                 $this->updated_at = date("Y-m-d H:i:s");
                 if ($this->password != NULL) {
                     $this->setPassword($this->password);
                     return true;
                 }
-            }else if($this->isNewRecord)
-            {
+            } else if ($this->isNewRecord) {
                 $this->created_at = date("Y-m-d H:i:s");
             }
             return true;
-        }return false;
+        }
+        return false;
     }
 
     /**
@@ -81,12 +81,13 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'username' => 'Username',
+            'username' => Yii::t(Constants::APP, 'site.view.username'),
+            'email' => Yii::t(Constants::APP, 'site.sign_up.email'),
+            'password' => Yii::t(Constants::APP, 'site.view.password'),
             'type' => 'Type',
             'auth_key' => 'Auth Key',
             'password_hash' => 'Password Hash',
             'password_reset_token' => 'Password Reset Token',
-            'email' => 'Email',
             'status' => 'Status',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
@@ -102,7 +103,8 @@ class User extends \yii\db\ActiveRecord
         return $this->hasMany(Shop::className(), ['owner_id' => 'id']);
     }
 
-    public function setPassword($password) {
+    public function setPassword($password)
+    {
         $this->password_hash = Yii::$app->security->generatePasswordHash($password);
     }
 }

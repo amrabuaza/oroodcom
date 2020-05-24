@@ -1,5 +1,6 @@
 <?php
 
+use common\helper\Constants;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -18,7 +19,7 @@ use yii\widgets\ActiveForm;
 
 
     <?php if (!$model->isNewRecord) { ?>
-        <div class="btn btn-info btn-sm password-click">Edit Password !!</div>
+        <div class="btn btn-info btn-sm password-click"><?= Yii::t(Constants::APP,"buttons.edit_password") ?></div>
 
         <div class="pass-in">
             <br/>
@@ -32,7 +33,7 @@ use yii\widgets\ActiveForm;
     <br/>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Yii::t(Constants::APP,"buttons.save"), ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
