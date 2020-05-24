@@ -3,6 +3,7 @@
 namespace backend\models;
 
 use backend\models\translations\CategoryLanguage;
+use common\helper\Constants;
 use omgdef\multilingual\MultilingualBehavior;
 use Yii;
 
@@ -16,7 +17,7 @@ use Yii;
  *
  * @property Shop $shop
  * @property Item[] $items
- * @property CategoryLanguage[] $categoryLanguages
+ * @property CategoryLanguage $categoryLanguages
  */
 class Category extends \yii\db\ActiveRecord
 {
@@ -71,7 +72,7 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => Yii::t(Constants::APP, 'category.fields.name'),
             'shop_id' => 'Shop ID',
         ];
     }
@@ -100,7 +101,7 @@ class Category extends \yii\db\ActiveRecord
      */
     public function getCategoryLanguages()
     {
-        return $this->hasMany(CategoryLanguage::className(), ['category_id' => 'id']);
+        return $this->hasOne(CategoryLanguage::className(), ['category_id' => 'id']);
     }
 
 }

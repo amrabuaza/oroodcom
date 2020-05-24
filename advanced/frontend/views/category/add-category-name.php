@@ -1,5 +1,6 @@
 <?php
 
+use common\helper\Constants;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -16,7 +17,7 @@ use yii\widgets\ActiveForm;
     <?=$form->field($model, 'name_ar')->textInput()?>
 
     <div class="form-group">
-        <?=Html::submitButton('Save', ['class' => 'btn btn-success'])?>
+        <?=Html::submitButton(Yii::t(Constants::APP, 'buttons.add'), ['class' => 'btn btn-success full-width'])?>
     </div>
 
     <?php ActiveForm::end(); ?>

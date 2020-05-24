@@ -1,33 +1,36 @@
 <?php
 
+use common\helper\Constants;
 use frontend\models\ItemSearch;
 use yii\bootstrap\Modal;
 use yii\helpers\Html;
-use kartik\grid\GridView;
+use yii\grid\GridView;
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\CategorySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $shop backend\models\Shop */
 
-$this->title = 'Categories';
-$this->params['breadcrumbs'][] = ['label' => 'My shops', 'url' => ['shop/index']];
+$this->title = Yii::t(Constants::APP, 'category.title');
+$this->params['breadcrumbs'][] = ['label' => Yii::t(Constants::APP, 'site.view.my_shops'), 'url' => ['shop/index']];
+$this->params['breadcrumbs'][] = ['label' => $shop->name, 'url' => ['shop/view?id=' . $shop->id]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="category-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?=Html::encode($this->title)?></h1>
 
     <p>
-        <?= Html::a('Add Category', ['create'], ['class' => 'btn btn-success']) ?>
+        <?=Html::a(Yii::t(Constants::APP, 'category.add_btn'), ['create'], ['class' => 'btn btn-success'])?>
     </p>
     <div class="form-group">
-        <?= Html::submitButton('Add Category Name', ['value' => Url::to(['category/add-category-name']), 'class' => 'addNameBtn btn btn-primary']) ?>
+        <?=Html::submitButton(Yii::t(Constants::APP, 'category.add_name_btn'), ['value' => Url::to(['category/add-category-name']), 'class' => 'addNameBtn btn btn-primary'])?>
     </div>
 
     <?php
     Modal::begin([
-        'header' => '<h4>Add Category Name</h4>',
+        'header' => '<h4 class="text-center">' . Yii::t(Constants::APP, 'category.add_name_btn') . '</h4>',
         'id' => 'myModal',
         'size' => 'modal-sm',
     ]);
@@ -38,37 +41,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
     ?>
 
-
-
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <?= GridView::widget([
+    <?=GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
-        'pjax'=>true,
         'columns' => [
-            [
-                'class' => 'kartik\grid\ExpandRowColumn',
-                'value'=> function($model,$key,$index,$column)
-                {
-                    return GridView::ROW_COLLAPSED;
-                },
-                'detail'=> function($model,$key,$index,$column)
-                {
-                    $searchModel = new ItemSearch();
-                    $searchModel->category_id = $model->id;
-                    $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-                    return Yii::$app->controller->renderPartial('_item',[
-                        'searchModel' => $searchModel,
-                        'dataProvider' => $dataProvider,
-                    ]);
-                },
-            ],
+            ['class' => 'yii\grid\SerialColumn'],
             'name',
-            ['class' => 'kartik\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]); ?>
+    ]);?>
 
 
 </div>

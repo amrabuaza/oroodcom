@@ -2,6 +2,7 @@
 
 namespace backend\models;
 
+use common\helper\Constants;
 use Yii;
 
 /**
@@ -46,8 +47,8 @@ class PendingDefaultCategoryName extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name in English',
-            'name_ar' => 'Name in Arabic',
+            'name' => Yii::t(Constants::APP, 'category.fields.name'),
+            'name_ar' => Yii::t(Constants::APP, 'category.fields.name_ar'),
             'status' => 'Status',
             'user_id' => 'User ID',
         ];

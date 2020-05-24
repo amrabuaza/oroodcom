@@ -6,6 +6,8 @@ use backend\models\Category;
 use backend\models\Item;
 use backend\models\PendingDefaultCategoryName;
 use backend\models\Shop;
+use common\helper\Constants;
+use common\helper\HelperMethods;
 use frontend\models\CategorySearch;
 use frontend\models\Model;
 use Yii;
@@ -42,17 +44,36 @@ class CategoryController extends Controller
         ];
     }
 
+    public function beforeAction($action)
+    {
+        if (!parent::beforeAction($action))
+            return false;
+
+        $language = HelperMethods::getLanguageFromSessionOrSetIfNotExists();
+        Yii::$app->language = $language;
+        Yii::$app->sourceLanguage = $language;
+
+        if ($language == Constants::ARABIC_LANGUAGE) {
+            $this->layout = "main-ar";
+        }
+
+        return true;
+    }
+
     /**
      * Lists all Category models.
+     * @param null $id
      * @return mixed
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      */
     public function actionIndex($id = null)
     {
-        $session = Yii::$app->session;
+
         if ($id != null) {
-            $session->set('shop_id', $id);
-        } else if (isset($_SESSION['shop_id'])) {
-            $id = $session->get('shop_id');
+            HelperMethods::setShopIdIntoSession($id);
+        } else {
+            $id = HelperMethods::getShopIdSession();
         }
 
         $userId = Yii::$app->user->id;
@@ -60,28 +81,28 @@ class CategoryController extends Controller
         $query->andWhere(["status" => "active"]);
 
         if ($query->count() != 0) {
-            $message = "Admin accepted the category name";
+            $message = Yii::t(Constants::APP, 'category.added_message_1');
 
 
             if ($query->count() > 1) {
-                $message = $message . "s ";
+                $message = Yii::t(Constants::APP, 'category.added_message_2');
             }
 
             $count = 0;
             $message = $message . "(";
             foreach ($query->all() as $model) {
 
-                if($count+1 == $query->count()){
+                if ($count + 1 == $query->count()) {
                     $message = $message . $model->name;
-                }else{
-                    $message = $message . $model->name." , ";
+                } else {
+                    $message = $message . $model->name . " , ";
                 }
 
                 $model->delete();
             }
             $message = $message . ")";
 
-            Yii::$app->session->setFlash('success',$message);
+            Yii::$app->session->setFlash('success', $message);
 
         }
 
@@ -91,6 +112,7 @@ class CategoryController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            "shop" => Shop::findOne($id)
         ]);
     }
 
@@ -102,8 +124,10 @@ class CategoryController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            "shop" => Shop::findOne($model->shop_id)
         ]);
     }
 
@@ -133,7 +157,8 @@ class CategoryController extends Controller
         $model = new PendingDefaultCategoryName();
         $model->user_id = Yii::$app->user->id;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', 'Thank you for adding category name. We will accepted it as soon as possible.');
+
+            Yii::$app->session->setFlash('success', Yii::t(Constants::APP, 'category.add_message'));
             $searchModel = new CategorySearch();
 
             $session = Yii::$app->session;
@@ -160,52 +185,15 @@ class CategoryController extends Controller
     public function actionCreate()
     {
         $model = new Category();
-        $modelsItems = [new Item];
+        $model->shop_id = HelperMethods::getShopIdSession();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $modelsItems = Model::createMultiple(Item::classname());
-            Model::loadMultiple($modelsItems, Yii::$app->request->post());
-            // validate all models
-            $valid = $model->validate();
-            $valid = Model::validateMultiple($modelsItems) && $valid;
-
-            if ($valid) {
-                $transaction = \Yii::$app->db->beginTransaction();
-                try {
-
-                    if ($flag = $model->save(false)) {
-                        foreach ($modelsItems as $index => $modelItem) {
-                            $image = UploadedFile::getInstanceByName("Item[" . $index . "][upload_image]");
-                            if ($image != null) {
-                                $modelName = $modelItem->name . '_' . $this->guid() . '_';
-                                $modelItem->picture = $modelName . $image->baseName . '.' . $image->extension;
-                            }
-                            $modelItem->category_id = $model->id;
-                            if (!($flag = $modelItem->save(false))) {
-
-                                $transaction->rollBack();
-                                break;
-                            }
-
-                            if ($image != null) {
-                                $image->saveAs('uploads/' . $modelItem->picture);
-                            }
-                        }
-                    }
-                    if ($flag) {
-                        $transaction->commit();
-                        return $this->redirect(['view', 'id' => $model->id]);
-                    }
-                } catch (Exception $e) {
-                    echo($e);
-                    $transaction->rollBack();
-                }
-            }
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-                'modelsItems' => (empty($modelsItems)) ? [new Item] : $modelsItems,
-            ]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
+
+        return $this->render('create', [
+            'model' => $model,
+            "shop" => Shop::findOne($model->shop_id)
+        ]);
     }
 
     /**
@@ -218,54 +206,13 @@ class CategoryController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $modelsItems = $model->items;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $oldIDs = ArrayHelper::map($modelsItems, 'id', 'id');
-            $modelsItems = Model::createMultiple(Item::classname(), $modelsItems);
-            Model::loadMultiple($modelsItems, Yii::$app->request->post());
-            $deletedIDs = array_diff($oldIDs, array_filter(ArrayHelper::map($modelsItems, 'id', 'id')));
-            // validate all models
-            $valid = $model->validate();
-            $valid = Model::validateMultiple($modelsItems) && $valid;
-            if ($valid) {
-                $transaction = \Yii::$app->db->beginTransaction();
-                try {
-                    if ($flag = $model->save(false)) {
-                        if (!empty($deletedIDs)) {
-                            Item::deleteAll(['id' => $deletedIDs]);
-                        }
-                        foreach ($modelsItems as $index => $modelItem) {
-                            $modelItem->category_id = $model->id;
-                            $image = UploadedFile::getInstanceByName("Item[" . $index . "][upload_image]");
-                            if ($image != null) {
-                                $modelName = $modelItem->name . '_' .$this->guid() . '_';
-                                $modelItem->picture = $modelName . $image->baseName . '.' . $image->extension;
-                            }
-
-
-                            if (!($flag = $modelItem->save(false))) {
-                                $transaction->rollBack();
-                                break;
-                            }
-                            if ($image != null) {
-                                $image->saveAs('uploads/' . $modelItem->picture);
-                            }
-                        }
-                    }
-                    if ($flag) {
-                        $transaction->commit();
-                        return $this->redirect(['view', 'id' => $model->id]);
-                    }
-                } catch (Exception $e) {
-                    $transaction->rollBack();
-                }
-            }
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-                'modelsItems' => $modelsItems,
-            ]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
+        return $this->render('update', [
+            'model' => $model,
+            "shop" => Shop::findOne($model->shop_id)
+        ]);
     }
 
     /**
@@ -274,20 +221,14 @@ class CategoryController extends Controller
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
-    }
-
-    function guid()
-    {
-        $data = openssl_random_pseudo_bytes(16);
-        $data[6] = chr(ord($data[6]) & 0x0f | 0x40);
-        $data[8] = chr(ord($data[8]) & 0x3f | 0x80);
-        return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
     }
 
 }
