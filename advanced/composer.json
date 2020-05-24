@@ -24,7 +24,8 @@
 		"msvdev/yii2-widget-mappicker": "*",
         "yii2mod/yii2-star-rating": "*",
 		"pigochu/yii2-jquery-locationpicker": ">=0.1.0",
-        "omgdef/yii2-multilingual-behavior": "~2.0"
+        "omgdef/yii2-multilingual-behavior": "~2.0",
+        "kartik-v/yii2-widget-timepicker": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

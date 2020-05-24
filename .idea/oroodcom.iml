@@ -30,6 +30,7 @@
       <excludeFolder url="file://$MODULE_DIR$/advanced/vendor/kartik-v/yii2-krajee-base" />
       <excludeFolder url="file://$MODULE_DIR$/advanced/vendor/kartik-v/yii2-widget-fileinput" />
       <excludeFolder url="file://$MODULE_DIR$/advanced/vendor/kartik-v/yii2-widget-select2" />
+      <excludeFolder url="file://$MODULE_DIR$/advanced/vendor/kartik-v/yii2-widget-timepicker" />
       <excludeFolder url="file://$MODULE_DIR$/advanced/vendor/msvdev/yii2-widget-mappicker" />
       <excludeFolder url="file://$MODULE_DIR$/advanced/vendor/myclabs/deep-copy" />
       <excludeFolder url="file://$MODULE_DIR$/advanced/vendor/omgdef/yii2-multilingual-behavior" />

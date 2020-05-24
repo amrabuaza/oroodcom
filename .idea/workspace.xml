@@ -9,7 +9,9 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/advanced/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -112,6 +114,7 @@
       <path value="$PROJECT_DIR$/advanced/vendor/kartik-v/yii2-bootstrap4-dropdown" />
       <path value="$PROJECT_DIR$/advanced/vendor/baha2odeh/yii2-dynamicform" />
       <path value="$PROJECT_DIR$/advanced/vendor/omgdef/yii2-multilingual-behavior" />
+      <path value="$PROJECT_DIR$/advanced/vendor/kartik-v/yii2-widget-timepicker" />
     </include_path>
   </component>
   <component name="ProjectId" id="1TcO79kdadg2W4px5SpYBTnURfG" />
@@ -123,7 +126,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../halime-sultan" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -136,6 +139,9 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\oroodcom\advanced\common" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\oroodcom\advanced\backend\modules\models" />
       <recent name="C:\xampp\htdocs\oroodcom\advanced\backend\modules\controllers" />
@@ -206,7 +212,8 @@
       <workItem from="1589242401517" duration="1362000" />
       <workItem from="1589248601217" duration="725000" />
       <workItem from="1590255926774" duration="1523000" />
-      <workItem from="1590258129314" duration="1409000" />
+      <workItem from="1590258129314" duration="8821000" />
+      <workItem from="1590276225323" duration="8636000" />
     </task>
     <servers />
   </component>
@@ -214,34 +221,37 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2056" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1590258957569">
+    <state x="2056" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1590337178222">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="2056" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590258957569" />
-    <state x="2106" y="261" key="FileChooserDialogImpl" timestamp="1590257372085">
+    <state x="2056" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590337178222" />
+    <state x="2102" y="432" key="ComposerInitDialogKey" timestamp="1590278199303">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="2106" y="261" key="FileChooserDialogImpl/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590257372085" />
+    <state x="2102" y="432" key="ComposerInitDialogKey/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590278199303" />
+    <state x="2106" y="261" key="FileChooserDialogImpl" timestamp="1590276306905">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2106" y="261" key="FileChooserDialogImpl/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590276306905" />
     <state x="2038" y="418" width="410" height="204" key="Github.ShareDialog" timestamp="1590257328621">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="2038" y="418" width="410" height="204" key="Github.ShareDialog/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590257328621" />
-    <state x="2160" y="443" key="NewPhpFileDialog" timestamp="1590258177112">
+    <state x="2160" y="443" key="NewPhpFileDialog" timestamp="1590261763538">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="2160" y="443" key="NewPhpFileDialog/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590258177112" />
+    <state x="2160" y="443" key="NewPhpFileDialog/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590261763538" />
+    <state x="1982" y="240" key="run.anything.popup" timestamp="1590337941809">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1982" y="240" key="run.anything.popup/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590337941809" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/advanced/frontend/views/category/_form.php</url>
-          <line>114</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/advanced/frontend/views/site/login.php</url>
-          <line>32</line>
+          <line>34</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
