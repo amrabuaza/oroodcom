@@ -23,5 +23,6 @@ class HomeArAsset extends AssetBundle
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
+        'airani\bootstrap\BootstrapRtlAsset',
     ];
 }
