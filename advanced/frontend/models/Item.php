@@ -5,6 +5,7 @@ namespace frontend\models;
 use backend\models\Category;
 use backend\models\Shop;
 use backend\models\translations\ItemLanguage;
+use common\helper\Constants;
 use omgdef\multilingual\MultilingualBehavior;
 use Yii;
 
@@ -76,11 +77,11 @@ class Item extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'price' => 'Price after sale',
-            'old_price' => 'Old Price',
-            'description' => 'Description',
-            'picture' => 'Picture',
+            'name' => Yii::t(Constants::APP, 'item.fields.name'),
+            'price' => Yii::t(Constants::APP, 'item.fields.price_after_sale'),
+            'old_price' => Yii::t(Constants::APP, 'item.fields.old_price'),
+            'description' => Yii::t(Constants::APP, 'item.fields.description'),
+            'picture' => Yii::t(Constants::APP, 'item.fields.picture'),
             'category_id' => 'Category ID',
         ];
     }

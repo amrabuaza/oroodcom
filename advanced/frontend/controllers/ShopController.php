@@ -124,13 +124,14 @@ class ShopController extends Controller
 
             $image = UploadedFile::getInstanceByName("Shop[upload_image]");
             if ($image != null) {
-                $modelName = $model->name . '_' . $this->guid() . '_';
-                $model->picture = $modelName . $image->baseName . '.' . $image->extension;
+                $currentDate = date('Y-m');
+                $this->createDirectoryOfCurrentMonthIfNotExists($currentDate);
+                $model->picture = $currentDate . "/" . Yii::$app->security->generateRandomString() . '.' . $image->extension;
             }
 
             if ($model->save()) {
                 if ($image != null) {
-                    $image->saveAs('uploads/' . $model->picture);
+                    $image->saveAs('uploads/shops/' . $model->picture);
                 }
                 return $this->redirect(['view', 'id' => $model->id]);
             }
@@ -149,7 +150,7 @@ class ShopController extends Controller
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
+     * @throws NotFoundHttpException|\yii\base\Exception if the model cannot be found
      */
     public function actionUpdate($id)
     {
@@ -160,13 +161,14 @@ class ShopController extends Controller
 
             $image = UploadedFile::getInstanceByName("Shop[upload_image]");
             if ($image != null) {
-                $modelName = $model->name . '_' . $model->id . '_';
-                $model->picture = $modelName . $image->baseName . '.' . $image->extension;
+                $currentDate = date('Y-m');
+                $this->createDirectoryOfCurrentMonthIfNotExists($currentDate);
+                $model->picture = $currentDate . "/" . Yii::$app->security->generateRandomString() . '.' . $image->extension;
             }
 
             if ($model->save()) {
                 if ($image != null) {
-                    $image->saveAs('uploads/' . $model->picture);
+                    $image->saveAs('uploads/shops/' . $model->picture);
                 }
                 if ($model->shopLanguage == null) {
                     $shopLanguage = new ShopLanguage();
@@ -215,13 +217,11 @@ class ShopController extends Controller
         return $this->redirect(['index']);
     }
 
-    private
-
-    function guid()
+    private function createDirectoryOfCurrentMonthIfNotExists($currentDate)
     {
-        $data = openssl_random_pseudo_bytes(16);
-        $data[6] = chr(ord($data[6]) & 0x0f | 0x40);
-        $data[8] = chr(ord($data[8]) & 0x3f | 0x80);
-        return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
+        if (!file_exists("uploads/shops/" . $currentDate)) {
+            mkdir("uploads/shops/" . $currentDate);
+        }
     }
+
 }

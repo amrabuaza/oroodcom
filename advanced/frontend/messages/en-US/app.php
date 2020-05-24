@@ -16,7 +16,6 @@ $siteViews = [
 
     "site.login.welcome" => "WELCOME",
     'site.sign_up.email' => 'Email',
-
 ];
 
 $shop = [
@@ -47,6 +46,28 @@ $category = [
     'category.add_message' => "Thank you for adding category name. We will accepted it as soon as possible.",
 ];
 
+$item = [
+    "item.title" => "Items",
+    "item.add_btn" => "Add Item",
+    "item.view_btn" => "View Item",
+    "item.update_btn" => "Update Item",
+    "item.fields.name" => "Name",
+    "item.fields.name_ar" => "Name in Arabic",
+    "item.fields.price_after_sale" => "Price after sale",
+    "item.fields.old_price" => "Old Price",
+    "item.fields.description" => "Description",
+    "item.fields.description_ar" => "Description in Arabic",
+    "item.fields.picture" => "Picture",
+    "item.fields.category" => "Category Name",
+    "item.add_arabic_translations" => "Add translation in Arabic",
+    "item.update_arabic_translations" => "Update translation in Arabic",
+
+    "item.search.fields.item_name"=>"Item Name",
+    "item.search.fields.shop_rate"=>"Shop Rate",
+    "item.search.fields.nearest_shops"=>"Nearest Shops",
+    "item.search.fields.lowest_price"=>"Lowest Price",
+];
+
 $buttons = [
     "buttons.update" => "Update",
     "buttons.feedback" => "Feedback",
@@ -59,4 +80,4 @@ $buttons = [
     "buttons.edit_password" => "Edit Password !!",
 ];
 
-return array_merge($siteViews, $shop, $buttons, $category);
+return array_merge($siteViews, $shop, $buttons, $category, $item);

@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <br/>
     <br/>
 
-    <?= Html::img('/oroodcom/advanced/frontend/web/uploads/'.$model->picture, ['class' => 'img-responsive shop-pic']);?>
+    <?= Html::img('/oroodcom/advanced/frontend/web/uploads/shops/'.$model->picture, ['class' => 'img-responsive shop-pic']);?>
 
     <br/>
 

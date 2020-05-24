@@ -2,7 +2,10 @@
 
 namespace frontend\models;
 
-class SerachItem extends Model
+use common\helper\Constants;
+use Yii;
+
+class SearchItem extends Model
 {
     public $latitude;
     public $longitude;
@@ -25,10 +28,10 @@ class SerachItem extends Model
     public function attributeLabels()
     {
         return [
-            'item_name' => 'Item Name',
-            'shop_rate' => 'Shop Rate',
-            'near_by_shop' => 'Nearest Shops',
-            'lowest_price' => 'Lowest Price',
+            'item_name' => Yii::t(Constants::APP, 'item.search.fields.item_name'),
+            'shop_rate' => Yii::t(Constants::APP, 'item.search.fields.shop_rate'),
+            'near_by_shop' => Yii::t(Constants::APP, 'item.search.fields.nearest_shops'),
+            'lowest_price' => Yii::t(Constants::APP, 'item.search.fields.lowest_price'),
         ];
     }
 }

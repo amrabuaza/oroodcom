@@ -3,6 +3,7 @@
 namespace backend\models\translations;
 
 use backend\models\Item;
+use common\helper\Constants;
 use Yii;
 
 /**
@@ -47,8 +48,8 @@ class ItemLanguage extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'language' => 'Language',
-            'name' => 'Name',
-            'description' => 'Description',
+            'name' => Yii::t(Constants::APP, 'item.fields.name_ar'),
+            'description' => Yii::t(Constants::APP, 'item.fields.description_ar'),
             'item_id' => 'Item ID',
         ];
     }

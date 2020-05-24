@@ -42,15 +42,19 @@ class ItemSearch extends Item
      *
      * @param array $params
      *
+     * @param $shop_id
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $shop_id = null)
     {
         $query = Item::find();
 
 
         $query->joinWith("shop");
-        $query->andWhere(["shop.status"=>"active"]);
+        $query->andWhere(["shop.status" => "active"]);
+        if ($shop_id != null) {
+            $query->andWhere(["shop.id" => $shop_id]);
+        }
 
         if ($this->nearByShop == 1) {
             $query->select(['item.*', '(POW(69.1 * (shop.latitude - ' . $this->latitude . '), 2) + POW(69.1 * (' . $this->longitude . ' - shop.longitude) * COS(shop.latitude / 57.3), 2)) AS distance'])
@@ -96,8 +100,7 @@ class ItemSearch extends Item
         ]);
 
         $query->andFilterWhere(['like', 'item.name', $this->name])
-            ->andFilterWhere(['=', 'shop.rate', $this->shopRate])
-        ;
+            ->andFilterWhere(['=', 'shop.rate', $this->shopRate]);
 
 
         return $dataProvider;

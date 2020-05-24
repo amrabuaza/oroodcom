@@ -5,25 +5,27 @@ use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use common\helper\Constants;
+use yii\widgets\LinkPager;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @return mixed
  * @var $dataProvider yii\data\ActiveDataProvider
  */
-
+/* @var $pages yii\data\Pagination */
 
 $this->title = 'Oroodcom';
 ?>
 
 <div class="container">
-
+    <?php Pjax::begin(); ?>
     <div class="form-group">
-        <?=Html::submitButton(Yii::t(Constants::APP, 'site.index.search'), ['value' => Url::to(['site/serach-item']), 'class' => 'serachBtn btn btn-primary'])?>
+        <?=Html::submitButton(Yii::t(Constants::APP, 'site.index.search'), ['value' => Url::to(['site/search-item']), 'class' => 'serachBtn btn btn-primary'])?>
     </div>
 
     <?php
     Modal::begin([
-        'header' => '<h4>' . Yii::t(Constants::APP, 'site.index.search') . '</h4>',
+        'header' => '<h4 class="text-center">' . Yii::t(Constants::APP, 'site.index.search') . '</h4>',
         'id' => 'myModal',
         'size' => 'modal-sm',
     ]);
@@ -88,9 +90,8 @@ $this->title = 'Oroodcom';
                                             ?>
                                             <div class="grid__item product medium-up--one-third small--one-half">
                                                 <div class=" text-center">
-                                                    <img class="item-pic"
-                                                         src="/oroodcom/advanced/frontend/web/uploads/<?=$obj->picture?>"
-                                                         class="img-fluid"
+                                                    <img class="item-pic img-fluid"
+                                                         src="/oroodcom/advanced/frontend/web/uploads/items/<?=$obj->picture?>"
                                                          alt="">
                                                     <div class="product__title"><a
                                                                 href="/admin/products"><?=$obj->name?></a></div>
@@ -111,16 +112,14 @@ $this->title = 'Oroodcom';
 
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </main>
         </div>
+        <?=LinkPager::widget([
+            'pagination' => $pages,
+        ]);?>
         <hr>
-
-
     </div>
-
-
+    <?php Pjax::end(); ?>
 </div>

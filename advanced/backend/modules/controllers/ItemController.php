@@ -5,7 +5,7 @@ namespace backend\modules\controllers;
 use backend\modules\models\Category;
 use backend\modules\models\Item;
 use backend\modules\models\SearchModel;
-use frontend\models\SerachItem;
+use frontend\models\SearchItem;
 use Yii;
 use yii\filters\auth\HttpBearerAuth;
 use yii\filters\Cors;
@@ -83,7 +83,7 @@ class ItemController extends ActiveController
 
     public function actionSearch()
     {
-        $model = new SerachItem();
+        $model = new SearchItem();
 
         if ($model->load(Yii::$app->request->post(), '') && $model->validate()) {
             $searchModel = new SearchModel();

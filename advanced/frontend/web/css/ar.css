@@ -7,6 +7,10 @@ th {
     text-align: right;
 }
 
+.navbar-right {
+    float: left !important;
+}
+
 .row [class*="col-"] {
     float: right;
 }
@@ -44,4 +48,9 @@ th {
 .select2-selection__clear {
     right: unset !important;
     left: 3rem;
+}
+
+.list-group-item {
+    margin-left: 3px !important;
+    margin-right: 10% !important;;
 }

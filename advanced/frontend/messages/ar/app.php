@@ -46,6 +46,28 @@ $category = [
     'category.add_message' => "شكرا لك على إضافة اسم الفئة. سنقبل به في أقرب وقت ممكن.",
 ];
 
+$item = [
+    "item.title" => "العناصر",
+    "item.add_btn" => "اضافة عنصر",
+    "item.view_btn" => "عرض العنصر",
+    "item.update_btn" => "تحديث العنصر",
+    "item.fields.name" => "الاسم باللغة الإنجليزية",
+    "item.fields.name_ar" => "الاسم بالعربية",
+    "item.fields.price_after_sale" => "السعر بعد الخصم",
+    "item.fields.old_price" => "السعر القديم",
+    "item.fields.description" => "الوصف بالإنجليزية",
+    "item.fields.description_ar" => "الوصف باللغة العربية",
+    "item.fields.picture" => "صورة",
+    "item.fields.category" => "اسم الفئة",
+    "item.add_arabic_translations" => "إضافة الترجمة باللغة العربية",
+    "item.update_arabic_translations" => "تحديث الترجمة بالعربية",
+
+    "item.search.fields.item_name" => "اسم العنصر",
+    "item.search.fields.shop_rate" => "تقييم المتجر",
+    "item.search.fields.nearest_shops" => "أقرب المحلات",
+    "item.search.fields.lowest_price" => "أقل سعر",
+];
+
 $buttons = [
     "buttons.update" => "تحديث",
     "buttons.feedback" => "موجز",
@@ -58,4 +80,4 @@ $buttons = [
     "buttons.edit_password" => "تحرير كلمة المرور !!",
 ];
 
-return array_merge($siteViews, $shop, $buttons, $category);
+return array_merge($siteViews, $shop, $buttons, $category, $item);

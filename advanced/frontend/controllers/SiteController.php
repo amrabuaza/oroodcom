@@ -12,16 +12,16 @@ use frontend\models\ItemSearch;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\ResetPasswordForm;
-use frontend\models\SerachItem;
+use frontend\models\SearchItem;
 use frontend\models\SignupForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;
+use yii\data\Pagination;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
 
 /**
  * Site controller
@@ -132,9 +132,9 @@ class SiteController extends Controller
 
     }
 
-    public function actionSerachItem()
+    public function actionSearchItem()
     {
-        $model = new SerachItem();
+        $model = new SearchItem();
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
 
@@ -184,12 +184,18 @@ class SiteController extends Controller
             $this->layout = "home-en";
         }
 
-        $query = Item::find();
+        $query = Item::find()->joinWith("shop")->where(["shop.status" => "active"]);
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count()]);
 
-        $items = $query->joinWith("shop")->where(["shop.status" => "active"])->all();
+
+        $items = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
 
         return $this->render('index', [
             'dataProvider' => $items,
+            'pages' => $pages,
         ]);
     }
 

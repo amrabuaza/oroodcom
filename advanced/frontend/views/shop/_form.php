@@ -31,7 +31,7 @@ use yii\widgets\ActiveForm;
     $initialPreview = [];
 
     if (!$model->isNewRecord) {
-        $pathImg = '../uploads/' . $model->picture;
+        $pathImg = '../uploads/shops/' . $model->picture;
         $initialPreview[] = Html::img($pathImg, ['class' => 'upload-image']);
     } ?>
     <div class="shop-pic">
