@@ -1,12 +1,15 @@
 <?php
 
+use common\helper\Constants;
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Shop */
+/* @var $longitude string */
+/* @var $latitude string */
 
-$this->title = 'Create Shop';
-$this->params['breadcrumbs'][] = ['label' => 'Shops', 'url' => ['index']];
+$this->title = Yii::t(Constants::APP, 'shop.add_shop');
+$this->params['breadcrumbs'][] = ['label' => Yii::t(Constants::APP, 'site.view.my_shops'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="shop-create">

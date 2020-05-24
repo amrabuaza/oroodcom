@@ -3,6 +3,7 @@
 namespace backend\models;
 
 use backend\models\translations\ShopLanguage;
+use common\helper\Constants;
 use omgdef\multilingual\MultilingualBehavior;
 use Yii;
 
@@ -11,8 +12,10 @@ use Yii;
  *
  * @property int $id
  * @property string $name
+ * @property string $name_ar
  * @property int $phone_number
  * @property string $description
+ * @property string $description_ar
  * @property string $latitude
  * @property string $longitude
  * @property string $open_at
@@ -24,6 +27,7 @@ use Yii;
  *
  * @property Category[] $categories
  * @property User $owner
+ * @property ShopLanguage $shopLanguage
  */
 class Shop extends \yii\db\ActiveRecord
 {
@@ -37,11 +41,10 @@ class Shop extends \yii\db\ActiveRecord
 
     public $address;
     public $upload_image;
-    public $open_at_pm_am;
-    public $close_at_pm_am;
+
     public function beforeSave($insert)
     {
-        if(parent::beforeSave($insert)) {
+        if (parent::beforeSave($insert)) {
             if (!empty($this->address)) {
                 $part = explode("@", $this->address);
                 if (count($part) == 2) {
@@ -49,14 +52,10 @@ class Shop extends \yii\db\ActiveRecord
                     $this->longitude = $part[1];
                 }
             }
-            if($this->isNewRecord)
-            {
-                $this->owner_id=Yii::$app->user->id;
-                $this->rate=5;
-                $this->open_at = $this->open_at . $this->open_at_pm_am;
-                $this->close_at = $this->close_at . $this->close_at_pm_am;
+            if ($this->isNewRecord) {
+                $this->owner_id = Yii::$app->user->id;
+                $this->rate = 5;
             }
-
 
             return true;
         }
@@ -69,12 +68,12 @@ class Shop extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'phone_number', 'description', 'open_at', 'close_at',  'picture' ], 'required'],
+            [['name', 'name_ar', 'phone_number', 'description', 'description_ar', 'open_at', 'close_at', 'picture'], 'required'],
             [['phone_number', 'rate', 'owner_id'], 'integer'],
             [['status'], 'string'],
-            [['address'],'safe'],
-            [['upload_image'],'safe'],
-            [['name', 'description', 'latitude', 'longitude', 'open_at', 'close_at', 'picture'], 'string', 'max' => 255],
+            [['address'], 'safe'],
+            [['upload_image'], 'safe'],
+            [['name', 'name_ar', 'description_ar', 'description', 'latitude', 'longitude', 'open_at', 'close_at', 'picture'], 'string', 'max' => 255],
             [['owner_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['owner_id' => 'id']],
         ];
     }
@@ -106,14 +105,16 @@ class Shop extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'phone_number' => 'Phone Number',
-            'description' => 'Description',
+            'name' => Yii::t(Constants::APP, "shop.fields.name"),
+            'name_ar' => Yii::t(Constants::APP, "shop.fields.name_ar"),
+            'phone_number' => Yii::t(Constants::APP, "shop.fields.phone_number"),
+            'description' => Yii::t(Constants::APP, "shop.fields.description"),
+            'description_ar' => Yii::t(Constants::APP, "shop.fields.description_ar"),
             'latitude' => 'Latitude',
             'longitude' => 'Longitude',
-            'open_at' => 'Open At',
-            'close_at' => 'Close At',
-            'rate' => 'Rate',
+            'open_at' => Yii::t(Constants::APP, "shop.fields.open_at"),
+            'close_at' => Yii::t(Constants::APP, "shop.fields.close_at"),
+            'rate' => Yii::t(Constants::APP, "shop.fields.rate"),
             'picture' => 'Picture',
             'status' => 'Status',
             'owner_id' => 'Owner ID',
@@ -134,5 +135,15 @@ class Shop extends \yii\db\ActiveRecord
     public function getOwner()
     {
         return $this->hasOne(User::className(), ['id' => 'owner_id']);
+    }
+
+    /**
+     * Gets query for [[ShopLanguage]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getShopLanguage()
+    {
+        return $this->hasOne(ShopLanguage::className(), ['shop_id' => 'id']);
     }
 }
