@@ -93,6 +93,11 @@
       <path value="$PROJECT_DIR$/advanced/vendor/kartik-v/yii2-widget-timepicker" />
       <path value="$PROJECT_DIR$/advanced/vendor/bower-asset/bootstrap-rtl" />
       <path value="$PROJECT_DIR$/advanced/vendor/airani/yii2-bootstrap-rtl" />
+      <path value="$PROJECT_DIR$/advanced/vendor/cebe/yii2-gravatar" />
+      <path value="$PROJECT_DIR$/advanced/vendor/almasaeed2010/adminlte" />
+      <path value="$PROJECT_DIR$/advanced/vendor/rmrevin/yii2-fontawesome" />
+      <path value="$PROJECT_DIR$/advanced/vendor/dmstr/yii2-adminlte-asset" />
+      <path value="$PROJECT_DIR$/advanced/vendor/fortawesome/font-awesome" />
     </include_path>
   </component>
   <component name="PhpUnit">

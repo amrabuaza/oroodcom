@@ -1,5 +1,8 @@
 <?php
 
+use backend\models\Category;
+use kartik\select2\Select2;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -22,7 +25,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'picture')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'category_id')->textInput() ?>
+    <?=
+    $form->field($model, 'category_id')->widget(Select2::classname(), [
+        'data' => ArrayHelper::map(Category::find()->all(), 'id', 'name'),
+        'language' => Yii::$app->language,
+        'pluginOptions' => [
+            'allowClear' => true
+        ],
+    ])->label("Category");
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

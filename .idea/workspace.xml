@@ -117,6 +117,11 @@
       <path value="$PROJECT_DIR$/advanced/vendor/kartik-v/yii2-widget-timepicker" />
       <path value="$PROJECT_DIR$/advanced/vendor/bower-asset/bootstrap-rtl" />
       <path value="$PROJECT_DIR$/advanced/vendor/airani/yii2-bootstrap-rtl" />
+      <path value="$PROJECT_DIR$/advanced/vendor/cebe/yii2-gravatar" />
+      <path value="$PROJECT_DIR$/advanced/vendor/almasaeed2010/adminlte" />
+      <path value="$PROJECT_DIR$/advanced/vendor/rmrevin/yii2-fontawesome" />
+      <path value="$PROJECT_DIR$/advanced/vendor/dmstr/yii2-adminlte-asset" />
+      <path value="$PROJECT_DIR$/advanced/vendor/fortawesome/font-awesome" />
     </include_path>
   </component>
   <component name="ProjectId" id="1TcO79kdadg2W4px5SpYBTnURfG" />
@@ -128,7 +133,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/advanced/frontend/views/item" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/advanced/frontend" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -142,18 +147,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\oroodcom\advanced\backend" />
+      <recent name="C:\xampp\htdocs\oroodcom\advanced\common" />
+      <recent name="C:\xampp\htdocs\oroodcom\advanced" />
+      <recent name="C:\xampp\htdocs\oroodcom\advanced\backend\views\layouts" />
       <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend\web\uploads\shops\2019-12" />
-      <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend\web\uploads\shops" />
-      <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend\web\uploads\items\2019-12" />
-      <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend\web\uploads\items" />
-      <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend\web\uploads" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend" />
       <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend\views\item" />
       <recent name="C:\xampp\htdocs\oroodcom\advanced\backend\modules\models" />
       <recent name="C:\xampp\htdocs\oroodcom\advanced\backend\modules\controllers" />
       <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend\views\category" />
-      <recent name="C:\xampp\htdocs\oroodcom\advanced\frontend\views\shop" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -219,7 +224,9 @@
       <workItem from="1589248601217" duration="725000" />
       <workItem from="1590255926774" duration="1523000" />
       <workItem from="1590258129314" duration="8821000" />
-      <workItem from="1590276225323" duration="18653000" />
+      <workItem from="1590276225323" duration="19872000" />
+      <workItem from="1590363806909" duration="463000" />
+      <workItem from="1590364282951" duration="2497000" />
     </task>
     <servers />
   </component>
@@ -239,10 +246,10 @@
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="2102" y="432" key="ComposerInitDialogKey/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590278199303" />
-    <state x="2106" y="261" key="FileChooserDialogImpl" timestamp="1590342551309">
+    <state x="2106" y="261" key="FileChooserDialogImpl" timestamp="1590364079223">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="2106" y="261" key="FileChooserDialogImpl/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590342551309" />
+    <state x="2106" y="261" key="FileChooserDialogImpl/0.0.1366.687/1366.0.1920.1040@1366.0.1920.1040" timestamp="1590364079223" />
     <state x="2038" y="418" width="410" height="204" key="Github.ShareDialog" timestamp="1590257328621">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>

@@ -131,9 +131,17 @@ a.desc:after {
     margin-top: -30px;
 }
 
+.body-content {
+    padding-top: 5%;
+}
+
+.width-90-perc {
+    width: 90%;
+}
+
 .home-stats .stat {
     padding: 20px;
-    font-size: 15px;
+    font-size: 13px;
     color: white;
     border-radius: 10px;
 
@@ -190,16 +198,34 @@ a.desc:after {
     background-color: #EEE;
 }
 
-.upload-image
-{
+.upload-image {
     width: 212px;
     height: 161px;
 }
 
-.shop-pic{
+.shop-pic {
     width: 300px;
 }
 
 /*
  end home / index
 */
+
+.content-wrapper {
+    background-color: white !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .p-b-mobile {
+        padding-bottom: 10px;
+    }
+}
+
+.p-l-14perc {
+    padding-left: 14%;
+}
+
+.navbar-nav > .user-menu > .dropdown-menu > li.user-header {
+    height: 90px !important;
+}
+

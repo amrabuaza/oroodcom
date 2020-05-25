@@ -12,35 +12,29 @@ use backend\models\Shop;
 ?>
 <div class="site-index">
 
-    <div class="jumbotron">
-        <h1 class="home_text">Dashboard</h1>
-    </div>
-
-
-
     <div class="body-content">
         <div class="container home-stats text-center">
-            <div class="row">
-                <div class="col-md-3">
+            <div class="row width-90-perc">
+                <div class="col-md-3 p-b-mobile">
 
                     <div class="stat st-users">
                         Total Users
                         <span><a href="user"><?= User::find()->count() ?></a> </span>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 p-b-mobile">
                     <div class="stat st-shops">
                         Total Shops
                         <span><a href="shop"><?= Shop::find()->count() ?></a> </span>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 p-b-mobile">
                     <div class="stat st-pending">
                         Pending Shops
                         <span><a href="shop/index?status=inactive"><?= Shop::find()->where(["status" => "inactive"])->count() ?></a> </span>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 p-b-mobile">
                     <div class="stat st-items">
                         Total Pending category names
                         <span><a href="pending-default-category-name"><?= PendingDefaultCategoryName::find()->where(["status" => "inactive"])->count() ?></a></span>
@@ -52,7 +46,7 @@ use backend\models\Shop;
         <div class="latest">
 
             <div class="container">
-                <div class="row">
+                <div class="row width-90-perc">
                     <div class="col-sm-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
